@@ -1,0 +1,62 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:component-scan base-package="com.aerospike.db.controller" />
+	
+	<bean class="com.aerospike.db.validator.FormInputValidator" />
+	<bean class="com.aerospike.db.validator.RecordDataValidator" />
+	
+ 	<!-- Register the Customer.properties -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="com/aerospike/db/properties/Database" />
+	</bean>
+ 	
+	<bean id="viewResolver"
+	      class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+          <property name="prefix">
+              <value>/WEB-INF/pages/</value>
+           </property>
+          <property name="suffix">
+             <value>.jsp</value>
+          </property>
+    </bean>
+    
+    <bean id="verifier" class="com.aerospike.db.validator.NullHostNameVerifier">     	   
+    </bean>
+    
+     <bean id="httpClientFactory" class="com.aerospike.db.validator.CustomSimpleClientHttpRequestFactory">
+     	  <constructor-arg ref="verifier"/>        
+    </bean> 
+    
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+    	<constructor-arg ref="httpClientFactory"/>
+    	 <property name="messageConverters">
+               <list merge="true">
+                      <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+                      <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+               </list>
+        </property>
+    </bean>
+
+    <bean id="aerospikeDBController" class="com.aerospike.db.controller.AerospikeDBController">
+        <property name="restTemplate" ref="restTemplate"/>
+        <property name="aerospikeDBService" ref="aerospikeDBService"/>
+    </bean>
+
+     <bean id="aerospikeRecordController" class="com.aerospike.db.controller.AerospikeRecordController">
+        <property name="restTemplate" ref="restTemplate"/>
+        <property name="aerospikeDBService" ref="aerospikeDBService"/>
+     </bean>
+     <bean id="aerospikePerformanceTestController" class="com.aerospike.db.controller.AerospikePerformanceTestController">
+        <property name="aerospikeDBService" ref="aerospikeDBService"/>
+     </bean>
+     <bean id="aerospikeDBService" class="com.aerospike.db.model.AerospikeDBService"></bean>
+
+</beans>
