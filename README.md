@@ -30,18 +30,13 @@ This repository contains Spring based web application used to demonstrate Aerosp
                                ('1','anand','anand123')
   
 
- +----------+------------+--------+
-| username | password   |  
-+----------+------------+--------+
-| "anand"  | "anand123" |  
-+----------+------------+--------+
-
  
 **Installing and Running This Application**
 This is a Java based application that uses Aerospike Java Client , eclipse and Maven. The pom.xml file shows Maven how to build the package. Maven can easily be obtained from:
 http://maven.apache.org/
 
 ***To run this tool:*** 
+
  **1.** The source code can be imported into your IDE and/or built using Maven
     
 
