@@ -59,7 +59,7 @@ footer {
 </head>
 <body>
 <p class="padding" ><img src="images/aerospike_logo_set_horizontal2.png" style="width:304px;height:60px">
-In-memory fastest NOSQL DB</p>
+In-memory NOSQL DB</p>
 
 <div class="my-block">
       <h2>Aerospike Web Client Application</h2>

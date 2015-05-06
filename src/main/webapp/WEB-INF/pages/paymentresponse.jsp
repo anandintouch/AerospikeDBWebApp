@@ -46,7 +46,7 @@ function goBack() {
 </script>
 <body>
 <p class="padding"><img src="images/aerospike_logo_set_horizontal2.png" style="width:304px;height:60px">
-In-memory fastest NOSQL DB</p>
+In-memory NOSQL DB</p>
 <div class="topcorner"><a href="http://${credential.hostName}:8080/AerospikeDBWebApp/credential.htm">Sign out</a></div>
 <div class="my-block">
       <h4>Response from Aerospike DB API call from the Cluster of Nodes!</h4>

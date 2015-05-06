@@ -54,7 +54,7 @@ function goBack() {
 <body>
 
 <p class="padding"><img src="images/aerospike_logo_set_horizontal2.png" style="width:304px;height:60px">
-In-memory fastest NOSQL DB</p>
+In-memory NOSQL DB</p>
 
 <div class="topcorner"><a href="http://${record.loggedInHostName}:8080/AerospikeDBWebApp/credential.htm">Sign out</a></div>
 <div class="bottomcorner">
