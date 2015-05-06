@@ -1,6 +1,8 @@
 
-**Aerospike DB Web Application**
-—————————————————
+
+Aerospike DB Web Application
+----------------------------
+
 
 This repository contains Spring based web application used to demonstrate Aerospike NOSQL DB API calls to insert and retrieve data. These APIs are exposed as a REST service . Landing page also has small panel to run performance/load test.
 
